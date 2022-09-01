@@ -1,4 +1,4 @@
-Cypress.Commands.add('gui_signUp', (driverInfo)=> {
+Cypress.Commands.add('gui_register', (driverInfo)=> {
 
         cy.get('input[name="name"]').type(driverInfo.name)
         cy.get('input[name="cpf"]').type(driverInfo.cpf)
