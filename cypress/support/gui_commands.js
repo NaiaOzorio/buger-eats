@@ -1,4 +1,4 @@
-Cypress.Commands.add('gui_register', (driverInfo)=> {
+Cypress.Commands.add('gui_fillForm', (driverInfo)=> {
 
         cy.get('input[name="name"]').type(driverInfo.name)
         cy.get('input[name="cpf"]').type(driverInfo.cpf)
@@ -11,4 +11,8 @@ Cypress.Commands.add('gui_register', (driverInfo)=> {
         cy.get('input[name="address"]').should('have.value',"Rua Paulino de Lima")
         cy.get('input[name="district"]').should('have.value',driverInfo.address.district)
         cy.get('input[name="city-uf"]').should('have.value',driverInfo.address.city)
+        cy.contains("Moto").click()
+        cy.get('input[accept="image/*"]').attachFile(driverInfo.doc)
+        cy.get('.button-success').click()
 })
+

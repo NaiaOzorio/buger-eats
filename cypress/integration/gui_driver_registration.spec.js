@@ -35,11 +35,8 @@ describe('Driver registration on the application', () => {
         
         cy.get('a[href="/deliver"]').click()
 
-        cy.gui_register(driverInfo)
+        cy.gui_fillForm(driverInfo)
 
-        cy.contains("Moto").click()
-        cy.get('input[accept="image/*"]').attachFile(driverInfo.doc)
-        cy.get('.button-success').click()
         cy.get('div[class="swal2-html-container"]')
             .should('be.visible')
     }); 
@@ -61,11 +58,7 @@ describe('Driver registration on the application', () => {
         
         cy.get('a[href="/deliver"]').click()
 
-        cy.gui_register(driverInfo)
-
-        cy.contains("Moto").click()
-        cy.get('input[accept="image/*"]').attachFile(driverInfo.doc)
-        cy.get('.button-success').click()
+        cy.gui_fillForm(driverInfo)
 
         cy.get('.alert-error').should('have.text', 'Oops! CPF inválido')
     });  
